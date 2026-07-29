@@ -1,9 +1,263 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marlon Ticora — Senior Full-Stack &amp; Backend Engineer</title>
+  <meta name="description" content="Marlon Ticora — Senior Full-Stack & Backend Engineer. 7+ years in banking & fintech. Java, Spring Boot, Angular, TypeScript, AWS. Based in Medellín, Colombia." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #355872;
+      --blue: #7AAACE;
+      --sky: #9CD5FF;
+      --cream: #F7F8F0;
+      --ink: #1c2b34;
+      --muted: #5b6b75;
+      --card: #ffffff;
+      --line: #e5eaed;
+      --radius: 14px;
+      --shadow: 0 6px 24px rgba(28, 43, 52, 0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
 
+    /* Nav */
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(247, 248, 240, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { font-weight: 800; letter-spacing: -0.02em; color: var(--navy); }
+    .nav-links { display: flex; gap: 26px; }
+    .nav-links a { font-size: 15px; font-weight: 500; color: var(--muted); transition: color .15s; }
+    .nav-links a:hover { color: var(--navy); }
+    @media (max-width: 680px) { .nav-links { display: none; } }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #2b4a61 55%, #24608a 100%);
+      color: #fff; padding: 92px 0 84px;
+    }
+    .hero h1 { font-size: clamp(32px, 6vw, 52px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; }
+    .hero .role { color: var(--sky); font-weight: 700; }
+    .hero p.lead { margin-top: 20px; max-width: 640px; font-size: clamp(16px, 2.4vw, 19px); color: #dbe9f2; }
+    .hero .loc { margin-top: 14px; font-size: 15px; color: var(--blue); }
+    .cta { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 20px; border-radius: 999px; font-weight: 600; font-size: 15px;
+      transition: transform .12s, box-shadow .12s, background .15s;
+    }
+    .btn-primary { background: var(--sky); color: var(--navy); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(156, 213, 255, 0.35); }
+    .btn-ghost { background: rgba(255,255,255,0.08); color: #fff; border: 1px solid rgba(255,255,255,0.25); }
+    .btn-ghost:hover { background: rgba(255,255,255,0.16); }
+
+    /* Sections */
+    section { padding: 72px 0; }
+    .section-title { font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); }
+    h2 { font-size: clamp(24px, 4vw, 32px); font-weight: 800; letter-spacing: -0.02em; margin: 8px 0 24px; color: var(--navy); }
+    .about p { max-width: 720px; color: var(--muted); font-size: 17px; }
+    .facts { margin-top: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+    .fact { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; }
+    .fact b { color: var(--navy); display: block; font-size: 15px; }
+    .fact span { color: var(--muted); font-size: 14px; }
+
+    /* Chips */
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip {
+      background: #fff; border: 1px solid var(--line); color: var(--navy);
+      padding: 7px 14px; border-radius: 999px; font-size: 14px; font-weight: 600;
+    }
+
+    /* Projects */
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+    .card {
+      background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 24px; box-shadow: var(--shadow); display: flex; flex-direction: column;
+      transition: transform .14s, box-shadow .14s;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(28,43,52,0.12); }
+    .card .flag { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--blue); }
+    .card h3 { font-size: 19px; font-weight: 700; margin: 6px 0 8px; color: var(--navy); }
+    .card p { color: var(--muted); font-size: 15px; flex: 1; }
+    .tags { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 7px; }
+    .tag { font-size: 12px; font-weight: 600; color: var(--navy); background: #eef4f8; padding: 4px 9px; border-radius: 6px; }
+    .card .link { margin-top: 16px; font-weight: 600; font-size: 14px; color: var(--navy); }
+    .card .link:hover { color: #24608a; }
+
+    /* Experience */
+    .exp { display: grid; gap: 14px; }
+    .exp-item { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 22px; }
+    .exp-item b { color: var(--navy); }
+    .exp-item span { color: var(--muted); font-size: 15px; }
+
+    /* Contact */
+    .contact { background: var(--navy); color: #fff; border-radius: 20px; padding: 48px 32px; text-align: center; }
+    .contact h2 { color: #fff; }
+    .contact p { color: #cfe0ec; max-width: 520px; margin: 0 auto 24px; }
+
+    footer { padding: 32px 0 48px; text-align: center; color: var(--muted); font-size: 14px; }
+  </style>
+</head>
 <body>
-  <h1>Marlon</h1>
-  <p>Welcome to my website!</p>
-  <img src="https://content.codecademy.com/articles/github-pages-via-web-app/happy-ice-cream.gif" />
-</body>
+  <header>
+    <div class="wrap">
+      <nav>
+        <span class="brand">Marlon Ticora</span>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#stack">Stack</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
 
+  <div class="hero">
+    <div class="wrap">
+      <h1>Marlon Ticora<br /><span class="role">Senior Full-Stack &amp; Backend Engineer</span></h1>
+      <p class="lead">Systems &amp; Informatics Engineer with 7+ years building and scaling backend systems for banks and financial platforms across Latin America. I care about clean architecture, thorough testing, and services that stay correct under load.</p>
+      <p class="loc">📍 Medellín, Colombia · AWS Certified · Bilingual (Spanish / English)</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://github.com/GitMarlonATA">GitHub</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/marlon-augusto-ticora-alvarez-fullstack-ml/">LinkedIn</a>
+        <a class="btn btn-ghost" href="mailto:marlonticora.alvarez@gmail.com">Email</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="about" class="about">
+    <div class="wrap">
+      <div class="section-title">About</div>
+      <h2>Backend that stays correct under load</h2>
+      <p>I work primarily in Java / Spring Boot on the backend and Angular / TypeScript on the front end, deploying to AWS. My background is in banking and fintech — core banking, payments, and cloud platforms — where correctness, concurrency, and reliability aren't optional.</p>
+      <div class="facts">
+        <div class="fact"><b>7+ years</b><span>Backend engineering in banking &amp; fintech</span></div>
+        <div class="fact"><b>AWS Certified</b><span>Solutions Architect Associate &amp; Cloud Practitioner</span></div>
+        <div class="fact"><b>MBA (in progress)</b><span>EAFIT University</span></div>
+        <div class="fact"><b>Bilingual</b><span>Spanish &amp; English</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack" style="padding-top:0;">
+    <div class="wrap">
+      <div class="section-title">Tech Stack</div>
+      <h2>Tools I build with</h2>
+      <div class="chips">
+        <span class="chip">Java</span>
+        <span class="chip">Spring Boot</span>
+        <span class="chip">TypeScript</span>
+        <span class="chip">Angular</span>
+        <span class="chip">Node.js</span>
+        <span class="chip">AWS</span>
+        <span class="chip">PostgreSQL</span>
+        <span class="chip">DynamoDB</span>
+        <span class="chip">Docker</span>
+        <span class="chip">AWS CDK</span>
+        <span class="chip">REST APIs</span>
+        <span class="chip">CI/CD</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-title">Featured Projects</div>
+      <h2>Selected work</h2>
+      <div class="grid">
+        <div class="card">
+          <span class="flag">Flagship · Java</span>
+          <h3>ledger-service</h3>
+          <p>A double-entry ledger &amp; payments microservice with idempotent transfers, safe concurrency, an immutable journal, and full test coverage.</p>
+          <div class="tags"><span class="tag">Java 21</span><span class="tag">Spring Boot 3</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span></div>
+          <a class="link" href="https://github.com/GitMarlonATA/ledger-service">View on GitHub →</a>
+        </div>
+        <div class="card">
+          <span class="flag">Flagship · AWS</span>
+          <h3>serverless-invoices-api</h3>
+          <p>A serverless invoices API on AWS Lambda, API Gateway, DynamoDB and EventBridge — single-table design, idempotent creates, event-driven processing, all in CDK.</p>
+          <div class="tags"><span class="tag">TypeScript</span><span class="tag">AWS Lambda</span><span class="tag">DynamoDB</span><span class="tag">AWS CDK</span></div>
+          <a class="link" href="https://github.com/GitMarlonATA/serverless-invoices-api">View on GitHub →</a>
+        </div>
+        <div class="card">
+          <span class="flag">Full-Stack</span>
+          <h3>Location Insight</h3>
+          <p>Click any point on a map and get an AI-generated description of the area — reverse geocoding plus an LLM, backed by a PostgreSQL history.</p>
+          <div class="tags"><span class="tag">React</span><span class="tag">Express</span><span class="tag">Drizzle</span><span class="tag">OpenAI</span></div>
+          <a class="link" href="https://github.com/GitMarlonATA/Location-Insight">View on GitHub →</a>
+        </div>
+        <div class="card">
+          <span class="flag">Frontend</span>
+          <h3>Employee Management</h3>
+          <p>A single-page application for managing employee records with reactive forms, validation, and client-side routing.</p>
+          <div class="tags"><span class="tag">Angular</span><span class="tag">TypeScript</span></div>
+          <a class="link" href="https://github.com/GitMarlonATA/sistemaGestionEmpleados">View on GitHub →</a>
+        </div>
+        <div class="card">
+          <span class="flag">Frontend</span>
+          <h3>AboutCoin</h3>
+          <p>A cryptocurrency explorer built with Vue and Tailwind CSS — browse coins, view market data, and inspect price details.</p>
+          <div class="tags"><span class="tag">Vue.js</span><span class="tag">Tailwind CSS</span></div>
+          <a class="link" href="https://github.com/GitMarlonATA/AboutCoin">View on GitHub →</a>
+        </div>
+        <div class="card">
+          <span class="flag">Backend</span>
+          <h3>WheelRestApi</h3>
+          <p>A REST API built as a technical challenge with Java EE 7 (JAX-RS), packaged as a WAR with Maven.</p>
+          <div class="tags"><span class="tag">Java EE</span><span class="tag">JAX-RS</span><span class="tag">Maven</span></div>
+          <a class="link" href="https://github.com/GitMarlonATA/WheelRestApi">View on GitHub →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-title">Experience</div>
+      <h2>Where I've worked</h2>
+      <div class="exp">
+        <div class="exp-item"><b>Globant</b> · <span>Software engineering for enterprise &amp; financial clients</span></div>
+        <div class="exp-item"><b>GFT Technologies</b> · <span>Banking &amp; fintech platforms</span></div>
+        <div class="exp-item"><b>Sophos Solutions</b> · <span>Core banking and payments software</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact">
+        <div class="section-title" style="color:var(--sky);">Contact</div>
+        <h2>Let's build something reliable</h2>
+        <p>Open to senior engineering roles and freelance backend / cloud projects.</p>
+        <div class="cta" style="justify-content:center;">
+          <a class="btn btn-primary" href="mailto:marlonticora.alvarez@gmail.com">Email me</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/marlon-augusto-ticora-alvarez-fullstack-ml/">LinkedIn</a>
+          <a class="btn btn-ghost" href="https://github.com/GitMarlonATA">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">© 2026 Marlon Ticora · Built with plain HTML &amp; CSS · Hosted on GitHub Pages</div>
+  </footer>
+</body>
 </html>
